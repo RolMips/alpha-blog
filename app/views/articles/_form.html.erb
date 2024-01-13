@@ -1,23 +1,27 @@
-<% if @article.errors.any? %>
-  <h2>Errors of validations :</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with(model: @article, data: { turbo: false }, local: :true) do |f| %>
-    <p>
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %><br/>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
-<%= link_to("Cancel and return to articles listing", articles_path) %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-sm-10">
+      <%= render 'shared/errors' %>
+      <%= form_with(model: @article, data: { turbo: false }, class: "shadow p-3 mb-3 bg-secondary rounded", local: :true) do |f| %>
+          <div class="mb-3 row">
+            <%= f.label :title, class: "col-sm-2 form-label text-light" %>
+            <div class="col-sm-10">
+              <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of article" %>
+            </div>
+          </div> 
+          <div class="mb-3 row">
+            <%= f.label :description, class: "col-sm-2 form-label text-light"  %><br/>
+            <div class="col-sm-10">
+              <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of article" %>
+            </div>
+          </div>
+          <div class="mb-3 col-auto text-center">
+              <%= f.submit class: "btn btn-outline-light btn-lg" %>
+          </div>
+      <% end %>
+      </div>
+      <div class="mb-3 col-auto text-center">
+        <%= link_to("Cancel and return to articles listing", articles_path, class: "btn btn-outline-secondary") %>
+      </div>
+    </div>
+</div>

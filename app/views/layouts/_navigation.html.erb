@@ -6,16 +6,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to "Articles", articles_path, class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarArticles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Articles
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarArticles">
+              <li><%= link_to "Listing all articles", articles_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Create a new article", new_article_path, class: "dropdown-item" %></li>
+            </ul>         
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>

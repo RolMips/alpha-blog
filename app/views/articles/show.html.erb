@@ -1,8 +1,24 @@
-<h1>Showing article details</h1>
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-<p>
-    <%= link_to("Edit", edit_article_path(@article)) %> |
-    <%= link_to("Delete", article_path(@article), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }) %> |
-    <%= link_to("Return to articles listing", articles_path) %> 
-</p>
+<h1 class="text-center mt-4">Article details</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-2 bg-white rounded">
+                <div class="card-header fst-italic">
+                    By RolMips
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-success"><%= @article.title %></h5>
+                    <div class="card-text"><%= simple_format(@article.description) %></div>
+                    <%= link_to("Edit", edit_article_path(@article), class: "btn btn-outline-info") %>
+                    <%= link_to("Delete", article_path(@article), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn btn-outline-danger") %>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>Created <%= time_ago_in_words(@article.created_at) %> ago - Updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 col-auto text-center">
+        <%= link_to("Return to articles listing", articles_path, class: "btn btn-outline-secondary") %>
+    </div>
+</div>
