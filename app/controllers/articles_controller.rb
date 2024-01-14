@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     def index
         @articles = Article.all
     end
-    
+
     def show
     end
 
@@ -13,23 +13,24 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
 
-    def edit            
+    def edit
     end
 
     def create
         @article = Article.new(article_params)
+        @article.user = User.first
         if @article.save
             flash[:notice] = "Article was created succesfully."
-            redirect_to @article    
+            redirect_to @article
         else
             render :new
-        end    
+        end
     end
 
     def update
         if @article.update(article_params)
             flash[:notice] = "Article was updated succesfully."
-            redirect_to @article          
+            redirect_to @article
         else
             render 'edit'
         end
@@ -38,9 +39,9 @@ class ArticlesController < ApplicationController
     def destroy
         @article.destroy
         flash[:notice] = "Article was deleted succesfully."
-        redirect_to articles_path          
+        redirect_to articles_path
     end
-    
+
     private
 
     def set_article
