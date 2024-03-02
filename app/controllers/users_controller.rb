@@ -30,10 +30,10 @@ end
 def update
   if @user.update(user_params)
     flash[:notice] = "Your account was succesfully updated."
-    redirect_to articles_path
-else
+    redirect_to @user
+  else
     render :edit
-end
+  end
 end
 
 private

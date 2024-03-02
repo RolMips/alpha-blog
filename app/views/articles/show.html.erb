@@ -4,7 +4,10 @@
         <div class="col-8 mt-4">
             <div class="card text-center shadow mb-2 bg-white rounded">
                 <div class="card-header fst-italic">
-                    By <%= @article.user.username if @article.user %>
+                    <% if @article.user %>
+                        <p>By <%= link_to @article.user.username, user_path(@article.user) %></p>
+                        <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+                    <% end %>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-success"><%= @article.title %></h5>
