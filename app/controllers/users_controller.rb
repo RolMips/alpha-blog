@@ -9,7 +9,7 @@ end
 def create
   @user = User.new(user_params)
   if @user.save
-      flash[:notice] = "Welcome to the alpha blog ! Your have succesfully sign up!"
+      flash[:success] = "Welcome to the alpha blog ! Your have succesfully sign up!"
       redirect_to articles_path
   else
       render :new
@@ -29,7 +29,7 @@ end
 
 def update
   if @user.update(user_params)
-    flash[:notice] = "Your account was succesfully updated."
+    flash[:success] = "Your account was succesfully updated."
     redirect_to @user
   else
     render :edit
