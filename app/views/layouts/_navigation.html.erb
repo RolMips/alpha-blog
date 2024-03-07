@@ -18,13 +18,19 @@
               <li><%= link_to "Create a new article", new_article_path, class: "dropdown-item" %></li>
             </ul>         
           </li>
-          <% if session[:user_id] %>
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+            </li>
             <li class="nav-item">
               <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %>
             </li>
           <% else %>
             <li class="nav-item">
               <%= link_to "Login", login_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign up!", signup_path, class: "nav-link" %>
             </li>
           <% end %>
         </ul>
