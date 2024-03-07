@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = "Logged in successfully!"
-      redirect_to user
+      redirect_to root_path
     else
       flash[:danger] = "Invalid credentials!"
       redirect_to login_path

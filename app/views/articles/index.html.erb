@@ -2,7 +2,7 @@
 <div class="flickr_pagination mt-4">
     <%= will_paginate @articles, :container => false %>
 </div>
-<%= render 'article' %>
+<%= render 'article', create: true %>
 <div class="flickr_pagination mt-2 mb-2">
     <%= will_paginate @articles, :container => false %>
 </div>
