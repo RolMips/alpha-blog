@@ -23,12 +23,12 @@
           <% if logged_in? %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarCurrentUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_user.username %>
+                <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarCurrentUser">
                 <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
                 <li><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %></li>
-                <li><%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></li>
+                <li><%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data: {turbo_confirm: 'Are you sure?', turbo_method: :delete} %></li>
                 <li><%= link_to "Logout", logout_path, class: "dropdown-item", method: :delete %></li>      
               </ul>
           <% else %>

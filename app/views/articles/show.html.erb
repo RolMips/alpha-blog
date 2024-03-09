@@ -12,7 +12,8 @@
                 <div class="card-body">
                     <h5 class="card-title text-success"><%= @article.title %></h5>
                     <div class="card-text"><%= simple_format(@article.description) %></div>
-                     <% if logged_in? && @article.user == current_user %>
+                     
+                     <% if logged_in? && (current_user.admin? || @article.user == current_user) %>
                         <%= link_to("Edit", edit_article_path(@article), class: "btn btn-outline-info") %>
                         <%= link_to("Delete", article_path(@article), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn btn-outline-danger") %>
                     <% end %>
