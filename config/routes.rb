@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
   resources :articles
@@ -9,5 +10,4 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   resources :categories, except: [:destroy]
-
 end

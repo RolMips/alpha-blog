@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <%= link_to "Alpha Blog", root_path, class: "navbar-brand", id:"logo" %> 
+      <%= link_to "Alpha Blog", root_path, class: "navbar-brand", id:"logo" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,7 +18,7 @@
               <% if logged_in? %>
                 <li><%= link_to "Create a new article", new_article_path, class: "dropdown-item" %></li>
               <% end %>
-            </ul>         
+            </ul>
           </li>
           <% if logged_in? %>
             <li class="nav-item dropdown">
@@ -29,7 +29,7 @@
                 <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
                 <li><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %></li>
                 <li><%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data: {turbo_confirm: 'Are you sure?', turbo_method: :delete} %></li>
-                <li><%= link_to "Logout", logout_path, class: "dropdown-item", method: :delete %></li>      
+                <li><%= link_to "Logout", logout_path, class: "dropdown-item", method: :delete %></li>
               </ul>
           <% else %>
             <li class="nav-item">
@@ -38,7 +38,7 @@
           <% end %>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
       </div>

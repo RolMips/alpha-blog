@@ -3,14 +3,14 @@
         <div class="row mt-4 justify-content-center">
             <%= link_to("Create new article", new_article_path, class: "btn btn-outline-dark col-auto") %>
         </div>
-    <% end %>    
+    <% end %>
     <% @articles.each do |article| %>
         <div class="row justify-content-center">
             <div class="col-8 mt-4">
                 <div class="card text-center shadow mb-2 bg-white rounded">
                     <div class="card-header fst-italic">
                         <% if article.user %>
-                            By <%= link_to article.user.username, user_path(article.user)  %>
+                            By <%= link_to article.user.username, user_path(article.user) %>
                         <% end %>
                     </div>
                     <div class="card-body">

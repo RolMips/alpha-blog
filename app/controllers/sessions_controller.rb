@@ -1,24 +1,37 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
-  def new
-  end
+class SessionsController < ApplicationController
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      flash[:success] = "Logged in successfully!"
-      redirect_to root_path
+    if valid_user?(user, params[:session][:password])
+      login_successful(user)
     else
-      flash[:danger] = "Invalid credentials!"
-      redirect_to login_path
+      login_failed
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = "Logged out successfully!"
+    flash[:success] = 'Logged out successfully!'
     redirect_to root_path
   end
 
+  private
+
+  def valid_user?(user, password)
+    user&.authenticate(password)
+  end
+
+  def login_successful(user)
+    session[:user_id] = user.id
+    flash[:success] = 'Logged in successfully!'
+    redirect_to root_path
+  end
+
+  def login_failed
+    flash[:danger] = 'Invalid credentials!'
+    redirect_to login_path
+  end
 end
