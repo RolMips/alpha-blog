@@ -8,6 +8,9 @@
                         <p>By <%= link_to @article.user.username, user_path(@article.user) %></p>
                         <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
                     <% end %>
+                    <% if @article.categories.any? %>
+                          <div class="mt-2"><%= render @article.categories %></div>
+                    <% end %>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title text-success"><%= @article.title %></h5>
