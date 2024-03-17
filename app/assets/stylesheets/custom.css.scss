@@ -1,3 +1,5 @@
+@import 'semantic-ui';
+
 html,
 body {
   height: 100%;
@@ -63,4 +65,13 @@ body {
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; 
+}
+
+/*SUrgcharge semantics ui like bootstrap */ 
+.ui .label 
+{
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #212529;
 }

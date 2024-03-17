@@ -231,6 +231,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    semantic-ui-sass (2.4.4.0)
+      sassc
     smart_properties (1.17.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -289,6 +291,7 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   selenium-webdriver
+  semantic-ui-sass
   sprockets-rails
   stimulus-rails
   turbo-rails

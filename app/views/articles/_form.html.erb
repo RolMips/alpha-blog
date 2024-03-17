@@ -18,9 +18,9 @@
           <div class="mb-3 row">
             <%= f.label "Categories selection", class: "col-sm-2 form-label text-light" %>
             <div class="col-sm-10">
-              <%= f.collection_select(:category_ids, Category.all, :id, :name, 
-                                      {prompt: "Make your selection from the list below (can be empty)"}, 
-                                      {multiple: true, size: 5, class: "form-select choices-multiple shadow rounded"}) %>
+              <%= f.collection_select(:category_ids, Category.all, :id, :name,
+                                      {prompt: "Make your selection from the list below (can be empty)"},
+                                      {multiple: true, size: 5, class: "ui fluid search dropdown"}) %>
             </div>
           </div>
           <div class="mb-3 col-auto text-center">
