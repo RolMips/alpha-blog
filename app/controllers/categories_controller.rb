@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: %i[show edit update]
   before_action :require_admin, except: %i[show index]
 
   def index
     @categories = Category.paginate(page: params[:page], per_page: 3)
   end
 
-  def show; end
+  def show
+    @articles = @category.articles.paginate(page: params[:page], per_page: 2)
+  end
 
   def new
     @category = Category.new
@@ -23,6 +25,15 @@ class CategoriesController < ApplicationController
       redirect_to @category
     else
       render :new
+    end
+  end
+
+  def update
+    if @category.update(category_params)
+      flash[:success] = 'Category name was succesfully updated.'
+      redirect_to @category
+    else
+      render :edit
     end
   end
 

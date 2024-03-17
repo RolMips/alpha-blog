@@ -15,7 +15,11 @@
       <% end %>
       </div>
       <div class="mb-3 col-auto text-center">
-        <%= link_to("Cancel and return to categories listing", categories_path, class: "btn btn-outline-secondary") %>
+        <% if action == 'create' %>
+          <%= link_to("Cancel and return to categories listing", categories_path, class: "btn btn-outline-secondary") %>
+        <% elsif action == 'update' %>
+          <%= link_to("Cancel and return to category", category_path(@category), class: "btn btn-outline-secondary") %>
+        <% end %>
       </div>
     </div>
 </div>
